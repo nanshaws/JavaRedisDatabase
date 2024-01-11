@@ -59,6 +59,14 @@ public class EventLoopServer {
                     } else {
                         out.println("未找到匹配的值：" + actualValue);
                     }
+                } else if (parts.length==2 && parts[0].equalsIgnoreCase("del")) {
+                    String key=parts[1];
+                    String actualValue = keyValueMap.remove(key);
+                    if (actualValue != null) {
+                        out.println("服务器已删除的值：" + actualValue);
+                    } else {
+                        out.println("未找到匹配的值：" + actualValue);
+                    }
                 } else {
                     out.println("无法识别的命令：" + message);
                 }
